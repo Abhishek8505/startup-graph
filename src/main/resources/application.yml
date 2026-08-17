@@ -1,0 +1,21 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: startup-graph
+  jackson:
+    default-property-inclusion: non_null
+  main:
+    banner-mode: off
+
+cognodb:
+  uri: ${COGNODB_URI:}
+  user: ${COGNODB_USER:cognodb}
+  password: ${COGNODB_PASSWORD:}
+  seed: ${COGNODB_SEED:false}
+
+logging:
+  level:
+    root: INFO
+    com.startupgraph: INFO
