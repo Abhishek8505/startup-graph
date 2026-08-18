@@ -1,0 +1,8 @@
+target/
+.env
+app.log
+.git
+docs/
+scripts/
+*.md
+run.bat
