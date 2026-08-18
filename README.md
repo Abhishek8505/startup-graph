@@ -291,6 +291,34 @@ Every page has proper loading (skeletons), empty and error states, and a global 
 
 ---
 
+## Deployment (Render — Free Tier)
+
+The app is deployable on [Render](https://render.com) as a single web service:
+
+1. Push this repo to GitHub
+2. On Render → **New Web Service** → connect your repo
+3. Set env vars:
+   - `COGNODB_URI` = your CognoDB bolt+s:// URL
+   - `COGNODB_USER` = `cognodb`
+   - `COGNODB_PASSWORD` = your password
+   - `COGNODB_SEED` = `true` (first deploy only)
+   - `JAVA_VERSION` = `17`
+4. Build command: `./mvnw clean package -DskipTests`
+5. Start command: `java -jar target/startup-graph-1.0.0.jar`
+6. Health check path: `/api/health`
+
+Full step-by-step guide: see **[DEPLOY.md](DEPLOY.md)**
+
+> ⚠️ Keep your CognoDB instance running. Free tier Render spins down after inactivity — first request takes 30-60 seconds.
+
+---
+
+## Screen Recording
+
+See **[SCREEN_RECORDING_SCRIPT.md](SCREEN_RECORDING_SCRIPT.md)** for a 60-90 second walkthrough script covering all key features.
+
+---
+
 ## Project layout
 
 ```

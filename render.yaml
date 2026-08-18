@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: venturegraph
+    runtime: java
+    plan: free
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/startup-graph-1.0.0.jar"
+    envVars:
+      - key: COGNODB_URI
+        sync: false
+      - key: COGNODB_USER
+        value: cognodb
+      - key: COGNODB_PASSWORD
+        sync: false
+      - key: COGNODB_SEED
+        value: "true"
+      - key: JAVA_VERSION
+        value: "17"
+      - key: PORT
+        value: "8080"
+    healthCheckPath: /api/health
